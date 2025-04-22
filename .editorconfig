@@ -1,0 +1,32 @@
+# .editorconfig file
+
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+max_line_length = 140
+
+[*.kt]
+indent_size = 4
+
+[*.kts]
+indent_size = 4
+
+[**/build/generated/**/*]
+ktlint = disabled
+
+[*.xml]
+indent_size = 2
+
+[*.{json,yml,yaml}]
+indent_size = 2
+
+# Ignore KtLint function naming rule for Composable functions
+[*.{kt,kts}]
+ktlint_function_naming_ignore_when_annotated_with = Composable
+no-wildcard-imports = true
