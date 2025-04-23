@@ -17,6 +17,7 @@ This template provides a solid foundation for building cross-platform mobile app
 ## Architecture
 
 The project follows Clean Architecture principles with a modular approach:
+[Architecture Flow](https://github.com/prashant17d97/KMPCleanArchitectureTemplate/blob/master/project_architecture.md)
 
 ### Core Modules
 
