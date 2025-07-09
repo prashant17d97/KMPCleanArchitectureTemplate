@@ -22,14 +22,11 @@ object AlertUtils {
         }
 
     @Composable
-    fun Color.value(alertType: AlertType): Color {
-        return if (this == Color.Unspecified) alertType.getSnackBarContainerColor else this
-    }
+    fun Color.value(alertType: AlertType): Color = if (this == Color.Unspecified) alertType.getSnackBarContainerColor else this
 
     @Composable
-    fun Color.valueContent(alertType: AlertType): Color {
-        return if (this == Color.Unspecified) contentColorFor(alertType.getSnackBarContainerColor) else this
-    }
+    fun Color.valueContent(alertType: AlertType): Color =
+        if (this == Color.Unspecified) contentColorFor(alertType.getSnackBarContainerColor) else this
 
     val AlertType.dialogButtonColor: Color
         @Composable

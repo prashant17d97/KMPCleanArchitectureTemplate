@@ -46,15 +46,16 @@ class BaseApiService(
         headers: Map<String, String> = emptyMap(),
     ): ApiResult<Response> =
         safeCall {
-            client.get {
-                contentType(ContentType.Application.Json)
-                headers.forEach { (key, value) -> header(key, value) }
+            client
+                .get {
+                    contentType(ContentType.Application.Json)
+                    headers.forEach { (key, value) -> header(key, value) }
 
-                url {
-                    appendPathSegments(pathSegment.toCleanPathSegments())
-                    queryParams.forEach { (key, value) -> parameters.append(key, value) }
-                }
-            }.body()
+                    url {
+                        appendPathSegments(pathSegment.toCleanPathSegments())
+                        queryParams.forEach { (key, value) -> parameters.append(key, value) }
+                    }
+                }.body()
         }
 
     /**
@@ -74,16 +75,17 @@ class BaseApiService(
         headers: Map<String, String> = emptyMap(),
     ): ApiResult<Response> =
         safeCall {
-            client.post {
-                contentType(ContentType.Application.Json)
-                setBody(body)
-                headers.forEach { (key, value) -> header(key, value) }
+            client
+                .post {
+                    contentType(ContentType.Application.Json)
+                    setBody(body)
+                    headers.forEach { (key, value) -> header(key, value) }
 
-                url {
-                    appendPathSegments(pathSegment.toCleanPathSegments())
-                    queryParams.forEach { (key, value) -> parameters.append(key, value) }
-                }
-            }.body()
+                    url {
+                        appendPathSegments(pathSegment.toCleanPathSegments())
+                        queryParams.forEach { (key, value) -> parameters.append(key, value) }
+                    }
+                }.body()
         }
 
     /**
@@ -103,16 +105,17 @@ class BaseApiService(
         headers: Map<String, String> = emptyMap(),
     ): ApiResult<Response> =
         safeCall {
-            client.put {
-                contentType(ContentType.Application.Json)
-                setBody(body)
-                headers.forEach { (key, value) -> header(key, value) }
+            client
+                .put {
+                    contentType(ContentType.Application.Json)
+                    setBody(body)
+                    headers.forEach { (key, value) -> header(key, value) }
 
-                url {
-                    appendPathSegments(pathSegment.toCleanPathSegments())
-                    queryParams.forEach { (key, value) -> parameters.append(key, value) }
-                }
-            }.body()
+                    url {
+                        appendPathSegments(pathSegment.toCleanPathSegments())
+                        queryParams.forEach { (key, value) -> parameters.append(key, value) }
+                    }
+                }.body()
         }
 
     /**
@@ -129,15 +132,16 @@ class BaseApiService(
         headers: Map<String, String> = emptyMap(),
     ): ApiResult<Response> =
         safeCall {
-            client.delete {
-                contentType(ContentType.Application.Json)
-                headers.forEach { (key, value) -> header(key, value) }
+            client
+                .delete {
+                    contentType(ContentType.Application.Json)
+                    headers.forEach { (key, value) -> header(key, value) }
 
-                url {
-                    appendPathSegments(pathSegment.toCleanPathSegments())
-                    queryParams.forEach { (key, value) -> parameters.append(key, value) }
-                }
-            }.body()
+                    url {
+                        appendPathSegments(pathSegment.toCleanPathSegments())
+                        queryParams.forEach { (key, value) -> parameters.append(key, value) }
+                    }
+                }.body()
         }
 
     /**
@@ -178,10 +182,9 @@ class BaseApiService(
      *
      * Example: "users/123" → ["users", "123"]
      */
-    fun String.toCleanPathSegments(): List<String> {
-        return takeIf { it.isNotBlank() }
+    fun String.toCleanPathSegments(): List<String> =
+        takeIf { it.isNotBlank() }
             ?.split("/")
             ?.filter { it.isNotEmpty() }
             ?: emptyList()
-    }
 }

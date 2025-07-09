@@ -3,7 +3,9 @@ package com.prashant.localdatasource.preference
 import com.liftric.kvault.KVault
 import com.prashant.core.domain.repository.local.PreferenceStore
 
-class SecurePreferenceManager(kVault: KVault) : PreferenceStore {
+class SecurePreferenceManager(
+    kVault: KVault,
+) : PreferenceStore {
     private var editor = kVault
 
     override fun putString(
@@ -44,37 +46,27 @@ class SecurePreferenceManager(kVault: KVault) : PreferenceStore {
     override fun getString(
         key: String,
         defaultValue: String?,
-    ): String? {
-        return editor.string(key) ?: defaultValue
-    }
+    ): String? = editor.string(key) ?: defaultValue
 
     override fun getInt(
         key: String,
         defaultValue: Int,
-    ): Int {
-        return editor.int(key) ?: defaultValue
-    }
+    ): Int = editor.int(key) ?: defaultValue
 
     override fun getLong(
         key: String,
         defaultValue: Long,
-    ): Long {
-        return editor.long(key) ?: defaultValue
-    }
+    ): Long = editor.long(key) ?: defaultValue
 
     override fun getFloat(
         key: String,
         defaultValue: Float,
-    ): Float {
-        return editor.float(key) ?: defaultValue
-    }
+    ): Float = editor.float(key) ?: defaultValue
 
     override fun getBoolean(
         key: String,
         defaultValue: Boolean,
-    ): Boolean {
-        return editor.bool(key) ?: defaultValue
-    }
+    ): Boolean = editor.bool(key) ?: defaultValue
 
     override fun remove(key: String) {
         editor.deleteObject(key)

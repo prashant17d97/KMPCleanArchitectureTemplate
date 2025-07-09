@@ -9,7 +9,8 @@ import org.koin.core.component.KoinComponent
 
 class IntroViewModel(
     private val appSettingRepository: AppSettingRepository,
-) : ViewModel(), KoinComponent {
+) : ViewModel(),
+    KoinComponent {
     private val currentPageFlow = MutableStateFlow(0)
     val currentPage: StateFlow<Int> = currentPageFlow.asStateFlow()
 

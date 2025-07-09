@@ -4,7 +4,9 @@ import com.prashant.core.domain.models.enums.Language
 import com.prashant.core.domain.models.enums.ThemeMode
 import com.prashant.core.domain.repository.local.PreferenceStore
 
-class AppSettingsManager(private val preferenceStore: PreferenceStore) {
+class AppSettingsManager(
+    private val preferenceStore: PreferenceStore,
+) {
     companion object {
         private const val APP_THEME = "app_theme"
         private const val APP_LANGUAGE = "app_language"
@@ -21,61 +23,45 @@ class AppSettingsManager(private val preferenceStore: PreferenceStore) {
         preferenceStore.putString(APP_THEME, theme)
     }
 
-    fun getAppTheme(): ThemeMode {
-        return preferenceStore.getString(APP_THEME, ThemeMode.SYSTEM.name).toThemeMode()
-    }
+    fun getAppTheme(): ThemeMode = preferenceStore.getString(APP_THEME, ThemeMode.SYSTEM.name).toThemeMode()
 
     fun saveAppLanguage(language: String) {
         preferenceStore.putString(APP_LANGUAGE, language)
     }
 
-    fun getAppLanguage(): Language {
-        return preferenceStore.getString(APP_LANGUAGE, Language.ENGLISH.name).toLanguage()
-    }
+    fun getAppLanguage(): Language = preferenceStore.getString(APP_LANGUAGE, Language.ENGLISH.name).toLanguage()
 
     fun saveFirstLaunch(isFirstLaunch: Boolean) {
         preferenceStore.putBoolean(FIRST_LAUNCH, isFirstLaunch)
     }
 
-    fun isFirstLaunch(): Boolean {
-        return preferenceStore.getBoolean(FIRST_LAUNCH, true)
-    }
+    fun isFirstLaunch(): Boolean = preferenceStore.getBoolean(FIRST_LAUNCH, true)
 
     fun saveOnBoardingPage(onBoardingPage: Int) {
         preferenceStore.putInt(ON_BOARDING_PAGE, onBoardingPage)
     }
 
-    fun getOnBoardingPage(): Int {
-        return preferenceStore.getInt(ON_BOARDING_PAGE, 0)
-    }
+    fun getOnBoardingPage(): Int = preferenceStore.getInt(ON_BOARDING_PAGE, 0)
 
     fun saveNotificationEnabled(isEnabled: Boolean) {
         preferenceStore.putBoolean(NOTIFICATION_ENABLED, isEnabled)
     }
 
-    fun isNotificationEnabled(): Boolean {
-        return preferenceStore.getBoolean(NOTIFICATION_ENABLED, true)
-    }
+    fun isNotificationEnabled(): Boolean = preferenceStore.getBoolean(NOTIFICATION_ENABLED, true)
 
     fun saveBiometricEnabled(isEnabled: Boolean) {
         preferenceStore.putBoolean(BIOMETRIC_ENABLED, isEnabled)
     }
 
-    fun isBiometricEnabled(): Boolean {
-        return preferenceStore.getBoolean(BIOMETRIC_ENABLED, false)
-    }
+    fun isBiometricEnabled(): Boolean = preferenceStore.getBoolean(BIOMETRIC_ENABLED, false)
 
     fun saveOnBoardingCompleted(isCompleted: Boolean) {
         preferenceStore.putBoolean(IS_ON_BOARDING_COMPLETED, isCompleted)
     }
 
-    fun isOnBoardingCompleted(): Boolean {
-        return preferenceStore.getBoolean(IS_ON_BOARDING_COMPLETED, false)
-    }
+    fun isOnBoardingCompleted(): Boolean = preferenceStore.getBoolean(IS_ON_BOARDING_COMPLETED, false)
 
-    fun isUserSessionExpired(): Boolean {
-        return preferenceStore.getBoolean(IS_USER_SESSION_EXPIRED, false)
-    }
+    fun isUserSessionExpired(): Boolean = preferenceStore.getBoolean(IS_USER_SESSION_EXPIRED, false)
 
     fun saveUserSessionExpired(isExpired: Boolean) {
         preferenceStore.putBoolean(IS_USER_SESSION_EXPIRED, isExpired)
@@ -85,9 +71,7 @@ class AppSettingsManager(private val preferenceStore: PreferenceStore) {
         preferenceStore.putBoolean(USE_DYNAMIC_COLOR, useDynamicColor)
     }
 
-    fun isDynamicColorEnabled(): Boolean {
-        return preferenceStore.getBoolean(USE_DYNAMIC_COLOR, false)
-    }
+    fun isDynamicColorEnabled(): Boolean = preferenceStore.getBoolean(USE_DYNAMIC_COLOR, false)
 
     fun clearAppSettings() {
         with(preferenceStore) {
@@ -103,11 +87,7 @@ class AppSettingsManager(private val preferenceStore: PreferenceStore) {
         }
     }
 
-    private fun String?.toLanguage(): Language {
-        return Language.entries.firstOrNull { it.name == this } ?: Language.ENGLISH
-    }
+    private fun String?.toLanguage(): Language = Language.entries.firstOrNull { it.name == this } ?: Language.ENGLISH
 
-    private fun String?.toThemeMode(): ThemeMode {
-        return ThemeMode.entries.firstOrNull { it.name == this } ?: ThemeMode.SYSTEM
-    }
+    private fun String?.toThemeMode(): ThemeMode = ThemeMode.entries.firstOrNull { it.name == this } ?: ThemeMode.SYSTEM
 }

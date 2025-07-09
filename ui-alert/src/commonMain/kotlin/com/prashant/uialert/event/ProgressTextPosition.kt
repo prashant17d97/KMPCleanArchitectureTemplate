@@ -1,4 +1,4 @@
-package app.debugdesk.uialerts.event
+package app.prashant.uialerts.event
 
 enum class ProgressTextPosition {
     TOP,

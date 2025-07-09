@@ -15,7 +15,8 @@ import org.koin.core.component.KoinComponent
 class LoginViewModel(
     private val loginWithEmailUseCase: LoginWithEmailUseCase,
     private val alertDispatcher: AlertDispatcher,
-) : ViewModel(), KoinComponent {
+) : ViewModel(),
+    KoinComponent {
     private val loginResponseFlow: MutableStateFlow<Unit> = MutableStateFlow(Unit)
     val loginResponse: StateFlow<Unit> = loginResponseFlow
 

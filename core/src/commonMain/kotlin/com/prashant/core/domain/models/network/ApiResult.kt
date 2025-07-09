@@ -5,10 +5,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 sealed class ApiResult<out T> {
     @Serializable
-    data class Success<T>(val data: T) : ApiResult<T>()
+    data class Success<T>(
+        val data: T,
+    ) : ApiResult<T>()
 
     @Serializable
-    data class Error(val message: String? = null, val code: Int? = null) : ApiResult<Nothing>()
+    data class Error(
+        val message: String? = null,
+        val code: Int? = null,
+    ) : ApiResult<Nothing>()
 
     @Serializable
     data object Timeout : ApiResult<Nothing>()
@@ -17,5 +22,7 @@ sealed class ApiResult<out T> {
     data object NoInternet : ApiResult<Nothing>()
 
     @Serializable
-    data class Unknown(val message: String? = null) : ApiResult<Nothing>()
+    data class Unknown(
+        val message: String? = null,
+    ) : ApiResult<Nothing>()
 }

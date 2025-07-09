@@ -6,4 +6,5 @@ import org.koin.core.component.KoinComponent
 
 class HomeViewModel(
     private val alertDispatcher: AlertDispatcher,
-) : ViewModel(), KoinComponent
+) : ViewModel(),
+    KoinComponent

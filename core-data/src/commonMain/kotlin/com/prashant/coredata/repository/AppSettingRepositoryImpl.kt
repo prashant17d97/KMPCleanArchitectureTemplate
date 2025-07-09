@@ -1,4 +1,4 @@
-package app.debugdesk.coredata.repository
+package com.prashant.coredata.repository
 
 import com.prashant.core.domain.models.AppSettingState
 import com.prashant.core.domain.models.enums.Language
@@ -8,8 +8,9 @@ import com.prashant.localdatasource.preference.AppSettingsManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
-class AppSettingRepositoryImpl(private val appSettingManager: AppSettingsManager) :
-    AppSettingRepository {
+class AppSettingRepositoryImpl(
+    private val appSettingManager: AppSettingsManager,
+) : AppSettingRepository {
     private val appSettingStateFlow = MutableStateFlow(AppSettingState())
     override val appSettingState: StateFlow<AppSettingState>
         get() = appSettingStateFlow

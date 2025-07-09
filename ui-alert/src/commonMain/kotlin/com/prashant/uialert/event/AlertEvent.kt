@@ -5,7 +5,7 @@ import androidx.compose.material3.SnackbarDuration
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
-import app.debugdesk.uialerts.event.ProgressTextPosition
+import app.prashant.uialerts.event.ProgressTextPosition
 import com.prashant.uialert.model.AlertDialogColorProperties
 import kmpcleanarchitecturetemplate.ui_alert.generated.resources.Res
 import kmpcleanarchitecturetemplate.ui_alert.generated.resources.cancel

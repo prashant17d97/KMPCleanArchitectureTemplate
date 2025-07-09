@@ -30,8 +30,8 @@ object KtorClientProvider {
     fun createKtorClient(
         tokenManager: TokenManager,
         baseUrl: Url,
-    ): HttpClient {
-        return HttpClient(getPlatformEngine()) {
+    ): HttpClient =
+        HttpClient(getPlatformEngine()) {
             expectSuccess = false
 
             install(ContentNegotiation) {
@@ -78,5 +78,4 @@ object KtorClientProvider {
                 socketTimeoutMillis = 30000
             }
         }
-    }
 }
