@@ -1,116 +1,52 @@
 # KMP Clean Architecture Template
 
-A Kotlin Multiplatform project template that demonstrates Clean Architecture principles in a cross-platform mobile application targeting Android and iOS. This project uses Jetpack Compose for UI and follows modern development practices.
+A Kotlin Multiplatform starter project for exploring a modular Clean Architecture setup across Android and iOS.
 
-## Project Overview
+The repository is intended as a starting point to study the project structure and adapt it to an application's needs.
 
-This template provides a solid foundation for building cross-platform mobile applications with:
+## Architecture at a glance
 
-- **Kotlin Multiplatform**: Share code between Android and iOS
-- **Jetpack Compose**: Modern declarative UI framework
-- **Clean Architecture**: Separation of concerns with modular design
-- **MVVM Pattern**: For presentation layer
-- **Dependency Injection**: Using Koin
-- **Navigation**: Compose Navigation for screen transitions
-- **Reactive Programming**: Flow-based reactive architecture
+The project separates presentation, domain, and data responsibilities, with shared code organized into reusable modules.
 
-## Architecture
+### Main modules
 
-The project follows Clean Architecture principles with a modular approach:
-[Architecture Flow](https://github.com/prashant17d97/KMPCleanArchitectureTemplate/blob/master/project_architecture.md)
+| Module | Responsibility |
+|---|---|
+| `composeApp` | Application entry point and feature integration |
+| `core` | Shared core utilities, UI components, and domain models |
+| `core-data` | Data-layer implementations |
+| `core-local-datasource` | Local data access |
+| `network` | Network communication |
+| `feature-onboarding` | Onboarding screens and flows |
+| `feature-home` | Home feature |
+| `ui-alert` | Reusable alert and notification UI |
+| `iosApp` | iOS application entry point |
 
-### Core Modules
+See the [architecture overview](project_architecture.md) for the project diagram.
 
-- **core**: Contains common utilities, UI components, and domain models
-- **core-data**: Data layer implementation
-- **core-local-datasource**: Local data storage
-- **network**: Network communication
+## Main technologies
 
-### Feature Modules
-
-- **feature-onboarding**: Onboarding and authentication screens
-- **feature-home**: Main home screen functionality
-
-### UI Modules
-
-- **ui-alert**: Reusable alert and notification components
-
-### App Module
-
-- **composeApp**: Main application module that integrates all features
-
-### Architecture Layers
-
-1. **Presentation Layer**: UI components, ViewModels, and Navigation
-2. **Domain Layer**: Business logic, use cases, and repository interfaces
-3. **Data Layer**: Repository implementations, data sources, and models
-
-## Project Structure
-
-```
-├── composeApp/                # Main application module
-├── core/                      # Core functionality
-├── core-data/                 # Data layer
-├── core-local-datasource/     # Local data storage
-├── network/                   # Network communication
-├── ui-alert/                  # UI components for alerts
-├── feature-onboarding/        # Onboarding feature
-├── feature-home/              # Home screen feature
-└── iosApp/                    # iOS application entry point
-```
-
-## Setup Instructions
-
-### Prerequisites
-
-- Android Studio Arctic Fox or newer
-- Xcode 13 or newer (for iOS development)
-- JDK 11 or newer
-- Kotlin 1.8.0 or newer
-
-### Building the Project
-
-1. Clone the repository
-2. Open the project in Android Studio
-3. Sync Gradle files
-4. Run the application on an Android device/emulator
-
-### For iOS Development
-
-1. Open the `iosApp/iosApp.xcodeproj` file in Xcode
-2. Build and run the application on an iOS device/simulator
-
-## Key Features
-
-- Cross-platform code sharing
-- Modular architecture
-- Dependency injection
-- Navigation system
-- Theme support with dark mode
-- Internet connectivity monitoring
-- Alert system for notifications
-
-## Dependencies
-
-The project uses several key libraries:
-
-- Jetpack Compose for UI
-- Compose Navigation for navigation
+- Kotlin Multiplatform
+- Compose Multiplatform
+- MVVM
 - Koin for dependency injection
-- Kotlin Coroutines and Flow for asynchronous programming
-- Ktor for networking (implied by the network module)
-- SQLDelight for local storage (implied by the core-local-datasource module)
+- Kotlin Coroutines and Flow
+- Compose Navigation
+- Ktor for networking
 
-## Contributing
+## Getting started
 
-Feel free to submit issues or pull requests to improve this template.
+1. Clone this repository.
+2. Open it in Android Studio and allow Gradle to sync.
+3. Run the Android app on an emulator or device.
+4. For iOS, open the iOS project in Xcode and run it on a simulator or device.
+
+Use the Gradle wrapper included in the repository. You may need a compatible JDK, Android SDK, and Xcode installation for your development environment.
+
+## Before using it in an application
+
+Treat this as a starting point, not a drop-in production architecture. Review the modules, replace example flows, configure environment-specific values, and add the tests and platform integrations your application requires.
 
 ## License
 
-[Add your license information here]
-
-## Learn More
-
-- [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
-- [Jetpack Compose](https://developer.android.com/jetpack/compose)
-- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+See the repository's [LICENSE](LICENSE) file.
